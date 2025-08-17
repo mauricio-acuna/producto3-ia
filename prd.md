@@ -73,7 +73,7 @@ No incluye: optimizaciones profundas de hardware (se abordan en Portal 4).
   *Circuit breakers, fallbacks, timeouts, degradación controlada.*
 * **Módulo E — CI/CD para agentes**
   *Pipelines con gates de calidad, evals automáticas, integración en GitHub Actions/GitLab CI.*
-* **Capstone:** desplegar un agente con RAG híbrido en entorno CI/CD, instrumentado con OTel, con seguridad básica y costes bajo control.
+* **Laboratorio 8 — Capstone Final:** Sistema LLM Customer Support completo con arquitectura de agentes especializados, observabilidad OpenTelemetry, seguridad avanzada, CI/CD automatizado y deployment en Kubernetes.
 
 ### 4.2 Funcionalidades del portal
 
