@@ -1,0 +1,154 @@
+name: 🚀 Portal 3 CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+env:
+  PROJECT_NAME: Portal3-LLMOps
+  PYTHON_VERSION: "3.9"
+
+jobs:
+  # Job 1: Linting y validación de documentación
+  documentation-check:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: 📝 Check Markdown files
+      uses: articulate/actions-markdownlint@v1
+      with:
+        config: .markdownlint.json
+        files: '**/*.md'
+        ignore: node_modules
+      continue-on-error: true
+    
+    - name: 🔍 Validate links in documentation
+      uses: gaurav-nelson/github-action-markdown-link-check@v1
+      with:
+        use-quiet-mode: 'yes'
+        use-verbose-mode: 'yes'
+        config-file: '.markdown-link-check.json'
+      continue-on-error: true
+
+  # Job 2: Seguridad básica
+  security-scan:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: 🔐 Run Trivy vulnerability scanner
+      uses: aquasecurity/trivy-action@master
+      with:
+        scan-type: 'fs'
+        scan-ref: '.'
+        format: 'table'
+      continue-on-error: true
+    
+    - name: 🔍 Detect secrets
+      uses: GitGuardian/ggshield-action@v1
+      with:
+        args: -v --all-policies
+      env:
+        GITGUARDIAN_API_KEY: ${{ secrets.GITGUARDIAN_API_KEY }}
+      continue-on-error: true
+
+  # Job 3: Estructura del proyecto
+  project-structure:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: 🏗️ Validate project structure
+      run: |
+        echo "Validating Portal 3 project structure..."
+        
+        # Verificar estructura de módulos
+        required_dirs=(
+          "modulos/modulo-a-observabilidad"
+          "modulos/modulo-b-seguridad" 
+          "modulos/modulo-c-costes"
+          "modulos/modulo-d-resiliencia"
+          "modulos/modulo-e-cicd"
+          "templates"
+          "ejemplos"
+          "laboratorios"
+          "capstone"
+          "docs"
+        )
+        
+        for dir in "${required_dirs[@]}"; do
+          if [ -d "$dir" ]; then
+            echo "✅ $dir exists"
+          else
+            echo "❌ $dir missing"
+            exit 1
+          fi
+        done
+        
+        # Verificar archivos clave
+        required_files=(
+          "README.md"
+          "prd.md"
+          ".gitignore"
+          "config.md"
+        )
+        
+        for file in "${required_files[@]}"; do
+          if [ -f "$file" ]; then
+            echo "✅ $file exists"
+          else
+            echo "❌ $file missing"
+            exit 1
+          fi
+        done
+        
+        echo "🎉 Project structure validation passed!"
+
+  # Job 4: Roadmap tracking
+  roadmap-status:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: 📊 Check roadmap progress
+      run: |
+        echo "## 📈 Roadmap Progress" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "| Semana | Entregable | Estado |" >> $GITHUB_STEP_SUMMARY
+        echo "|--------|------------|--------|" >> $GITHUB_STEP_SUMMARY
+        echo "| 1 | Landing + Módulo A (Observabilidad) | 🚧 En progreso |" >> $GITHUB_STEP_SUMMARY
+        echo "| 2 | Módulo B (Seguridad) + lab prompt injection | ⏳ Pendiente |" >> $GITHUB_STEP_SUMMARY
+        echo "| 3 | Módulo C (Costes) | ⏳ Pendiente |" >> $GITHUB_STEP_SUMMARY
+        echo "| 4 | Módulo D (Resiliencia) | ⏳ Pendiente |" >> $GITHUB_STEP_SUMMARY
+        echo "| 5 | Módulo E (CI/CD) | ⏳ Pendiente |" >> $GITHUB_STEP_SUMMARY
+        echo "| 6 | Capstone final + rúbrica | ⏳ Pendiente |" >> $GITHUB_STEP_SUMMARY
+        
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "### 📋 Checklist Actual" >> $GITHUB_STEP_SUMMARY
+        echo "- [x] PRD completo" >> $GITHUB_STEP_SUMMARY
+        echo "- [x] Estructura de proyecto" >> $GITHUB_STEP_SUMMARY
+        echo "- [x] READMEs de módulos" >> $GITHUB_STEP_SUMMARY
+        echo "- [x] Proyecto Capstone definido" >> $GITHUB_STEP_SUMMARY
+        echo "- [ ] Contenido Módulo A" >> $GITHUB_STEP_SUMMARY
+        echo "- [ ] Laboratorios implementados" >> $GITHUB_STEP_SUMMARY
+        echo "- [ ] Templates de configuración" >> $GITHUB_STEP_SUMMARY
+
+  # Job 5: Notificación de progreso
+  notify-progress:
+    runs-on: ubuntu-latest
+    needs: [documentation-check, security-scan, project-structure, roadmap-status]
+    if: always()
+    steps:
+    - name: 📢 Progress Summary
+      run: |
+        echo "🎯 Portal 3 Development Status"
+        echo "=============================="
+        echo "📝 Documentation: ${{ needs.documentation-check.result }}"
+        echo "🔐 Security: ${{ needs.security-scan.result }}"
+        echo "🏗️ Structure: ${{ needs.project-structure.result }}"
+        echo "📊 Roadmap: ${{ needs.roadmap-status.result }}"
+        echo ""
+        echo "Next steps: Comenzar desarrollo de contenido Módulo A"
