@@ -6,8 +6,21 @@ PROJECT_VERSION="1.0.0"
 PROJECT_DESCRIPTION="Curso de LLMOps: Operación, Seguridad y CI/CD para Agentes IA"
 
 ## Roadmap de Desarrollo
-CURRENT_WEEK=1
-CURRENT_DELIVERABLE="Landing + Módulo A (Observabilidad)"
+CURRENT_WEEK=2
+CURRENT_DELIVERABLE="Módulo B (Seguridad) + laboratorio de prompt injection"
+
+## Progreso Completado ✅
+- ✅ Semana 1: Módulo A (Observabilidad) - COMPLETADO
+  - Lección 1: Introducción a OpenTelemetry para LLMs
+  - Laboratorio 1: Instrumentación básica con OTel
+  - Laboratorio 2: Dashboards y alertas con Grafana
+  - Ejemplos avanzados de instrumentación
+
+- 🚧 Semana 2: Módulo B (Seguridad) - EN PROGRESO (50%)
+  - ✅ Lección 1: Detección y Prevención de Prompt Injection
+  - ✅ Laboratorio 3: Detectar y Bloquear Prompt Injection
+  - 🚧 Pendiente: Lección 2: PII Detection y GDPR Compliance
+  - 🚧 Pendiente: Laboratorio 4: Implementar PII Detection
 
 ## Configuración de Desarrollo
 PYTHON_VERSION="3.9+"
