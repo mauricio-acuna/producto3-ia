@@ -6,8 +6,8 @@ PROJECT_VERSION="1.0.0"
 PROJECT_DESCRIPTION="Curso de LLMOps: Operación, Seguridad y CI/CD para Agentes IA"
 
 ## Roadmap de Desarrollo
-CURRENT_WEEK=2
-CURRENT_DELIVERABLE="Módulo B (Seguridad) + laboratorio de prompt injection"
+CURRENT_WEEK=3
+CURRENT_DELIVERABLE="Módulo C (Optimización) - Gestión de costos y performance"
 
 ## Progreso Completado ✅
 - ✅ Semana 1: Módulo A (Observabilidad) - COMPLETADO
@@ -16,11 +16,17 @@ CURRENT_DELIVERABLE="Módulo B (Seguridad) + laboratorio de prompt injection"
   - Laboratorio 2: Dashboards y alertas con Grafana
   - Ejemplos avanzados de instrumentación
 
-- 🚧 Semana 2: Módulo B (Seguridad) - EN PROGRESO (50%)
+- ✅ Semana 2: Módulo B (Seguridad) - COMPLETADO
   - ✅ Lección 1: Detección y Prevención de Prompt Injection
   - ✅ Laboratorio 3: Detectar y Bloquear Prompt Injection
-  - 🚧 Pendiente: Lección 2: PII Detection y GDPR Compliance
-  - 🚧 Pendiente: Laboratorio 4: Implementar PII Detection
+  - ✅ Lección 2: PII Detection y GDPR Compliance
+  - ✅ Laboratorio 4: Sistema de Compliance con Microsoft Presidio
+
+- 🚧 Semana 3: Módulo C (Optimización) - INICIANDO
+  - 🚧 Lección 1: Optimización de Costos en LLMs
+  - 🚧 Laboratorio 5: Implementar Caching y Token Optimization
+  - 🚧 Lección 2: Performance y Escalabilidad
+  - 🚧 Laboratorio 6: Load Balancing y Rate Limiting
 
 ## Configuración de Desarrollo
 PYTHON_VERSION="3.9+"
