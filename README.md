@@ -17,22 +17,22 @@ Este proyecto implementa el **Portal 3** del programa de formación en IA, enfoc
 - Gestión de secretos
 - Compliance (PII/GDPR)
 
-### Módulo C - Costes y Rendimiento
-- Optimización de tokens
-- Caching
-- Batching
-- Selección de modelos
+### Módulo C - Optimización
+- Optimización de costos
+- Performance y escalabilidad
+- Caching inteligente
+- Batching y selección de modelos
 
-### Módulo D - Resiliencia Operacional
+### Módulo D - Resiliencia
 - Circuit breakers
-- Fallbacks
-- Timeouts
+- Fallbacks y health checks
+- Service discovery
 - Degradación controlada
 
-### Módulo E - CI/CD para Agentes
-- Pipelines con gates de calidad
-- Evaluaciones automáticas
-- Integración GitHub Actions/GitLab CI
+### Módulo E - CI/CD para IA
+- Evaluaciones automatizadas
+- Pipelines de deployment
+- Quality gates
 
 ## 🚀 Estructura del Proyecto
 
@@ -42,7 +42,7 @@ producto3-ia/
 ├── modulos/               # Contenido de cada módulo
 │   ├── modulo-a-observabilidad/
 │   ├── modulo-b-seguridad/
-│   ├── modulo-c-costes/
+│   ├── modulo-c-optimizacion/
 │   ├── modulo-d-resiliencia/
 │   └── modulo-e-cicd/
 ├── templates/             # Plantillas y configuraciones

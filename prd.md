@@ -67,12 +67,12 @@ No incluye: optimizaciones profundas de hardware (se abordan en Portal 4).
   *OTel, métricas clave, dashboards (Grafana/Prometheus).*
 * **Módulo B — Seguridad y privacidad**
   *Prompt injection, sanitización, gestión de secretos, PII/GDPR.*
-* **Módulo C — Costes y rendimiento**
-  *Optimización de tokens, caching, batching, selección de modelo.*
-* **Módulo D — Resiliencia operacional**
-  *Circuit breakers, fallbacks, timeouts, degradación controlada.*
-* **Módulo E — CI/CD para agentes**
-  *Pipelines con gates de calidad, evals automáticas, integración en GitHub Actions/GitLab CI.*
+* **Módulo C — Optimización**
+  *Optimización de costos, tokens, caching, batching, performance y escalabilidad.*
+* **Módulo D — Resiliencia**
+  *Circuit breakers, fallbacks, timeouts, health checks, service discovery.*
+* **Módulo E — CI/CD para IA**
+  *Evaluaciones automatizadas, pipelines de deployment, quality gates.*
 * **Laboratorio 8 — Capstone Final:** Sistema LLM Customer Support completo con arquitectura de agentes especializados, observabilidad OpenTelemetry, seguridad avanzada, CI/CD automatizado y deployment en Kubernetes.
 
 ### 4.2 Funcionalidades del portal
